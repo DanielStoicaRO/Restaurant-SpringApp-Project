@@ -16,17 +16,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/frontpage", "/login",
+        http.authorizeRequests().antMatchers( "/login",
                 "/contactUs", "/imagines/**", "/leasing",
                 "/product/view/*", "/register", "/error",
-                "/index", "/images/**", "/static/*").permitAll();
+                "/index", "/images/**", "/static/*"
+                , "/bootstrap/*", "/css/*", "/fonts/*", "/js/*").permitAll();
+
         http.authorizeRequests().anyRequest().authenticated();
         http.formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/index", true)
                 .failureUrl("/login");
 
         http.logout().logoutUrl("/logout").logoutSuccessUrl("/index").deleteCookies("JSESSIONID").clearAuthentication(true).invalidateHttpSession(true);

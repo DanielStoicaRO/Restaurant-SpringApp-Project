@@ -37,13 +37,14 @@ public class ProductController {
         System.out.println(getClass().getSimpleName() + " created");
     }
 
-    @GetMapping("/frontpage")
-    public ModelAndView getFrontPage(String keyword) {
-        ModelAndView modelAndView = new ModelAndView("frontpage");
+    @GetMapping("/orderForHome")
+    public ModelAndView getOrderForHome(String keyword) {
+        ModelAndView modelAndView = new ModelAndView("orderForHome");
 
         Optional<User> user = getLoggedInUser();
         if (user.isPresent()) {
-//            cart count
+
+//            cart count / user user
             Integer userId = userRepository.findUserEntityByUsername(user.get().getUsername()).getUserId();
             Long cartLenght = cartRepository.countAllByUserId(userId);
             modelAndView.addObject("cartSize", cartLenght);
@@ -78,7 +79,7 @@ public class ProductController {
 
     @PostMapping(value = "/product/save", consumes = {"multipart/form-data"})
     public ModelAndView productSave(@ModelAttribute("product") ProductEntity productEntity, @RequestParam("file") MultipartFile file) throws IOException {
-        ModelAndView modelAndView = new ModelAndView("redirect:/frontpage");
+        ModelAndView modelAndView = new ModelAndView("redirect:/orderForHome");
         String path1 = "target/classes/static/imagines";
         String path2 = "src/main/resources/static/imagines";
         String filename = file.getOriginalFilename();
@@ -133,7 +134,7 @@ public class ProductController {
         Optional<ProductEntity> productEntity = productRepository.findById(id);
         if (productEntity.isPresent()) {
             productRepository.delete(productEntity.get());
-            ModelAndView modelAndView = new ModelAndView("redirect:/frontpage");
+            ModelAndView modelAndView = new ModelAndView("redirect:/orderForHome");
             return modelAndView;
         }
         ModelAndView modelAndView = new ModelAndView("error");

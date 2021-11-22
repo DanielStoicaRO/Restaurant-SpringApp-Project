@@ -50,18 +50,6 @@ public class GeneralController {
         return modelAndView;
     }
 
-    @GetMapping("/leasing")
-    public ModelAndView getLeasing() {
-        ModelAndView modelAndView = new ModelAndView("leasing");
-        Optional<User> user = getLoggedInUser();
-        if (user.isPresent()) {
-//            cart count
-            Integer userId = userRepository.findUserEntityByUsername(user.get().getUsername()).getUserId();
-            Long cartLenght = cartRepository.countAllByUserId(userId);
-            modelAndView.addObject("cartSize", cartLenght);
-        }
-        return modelAndView;
-    }
 
     @GetMapping("/pay")
     public ModelAndView getPay() {

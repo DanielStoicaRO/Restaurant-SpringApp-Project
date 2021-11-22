@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/bootstrap/");
 
         registry.addResourceHandler("/css/**")
-                .addResourceLocations("classpath:/static/");
+                .addResourceLocations("classpath:/static/css/");
 
         registry.addResourceHandler("/fonts/**")
                 .addResourceLocations("classpath:/static/fonts/");
@@ -27,10 +27,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/js/**")
                 .addResourceLocations("classpath:/static/js/");
 
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/templates/");
 
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/static/");
     }
 }

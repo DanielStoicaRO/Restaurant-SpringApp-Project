@@ -80,7 +80,7 @@ public class CartController {
 
     @GetMapping("/add-cart/{id}")
     public ModelAndView addCard(@PathVariable Integer id, CartEntity cartEntity) {
-        ModelAndView modelAndView = new ModelAndView("redirect:/frontpage");
+        ModelAndView modelAndView = new ModelAndView("redirect:/orderForHome");
 
         Optional<User> user = getLoggedInUser();
 

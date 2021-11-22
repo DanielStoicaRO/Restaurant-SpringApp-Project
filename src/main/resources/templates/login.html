@@ -22,7 +22,7 @@
 
         .bg {
             animation: slide 3s ease-in-out infinite alternate;
-            background-image: linear-gradient(-60deg, deepskyblue 50%, firebrick 50%);
+            background-image: linear-gradient(-60deg, black 50%, #5e5e5e 50%);
             bottom: 0;
             left: -50%;
             opacity: .5;
@@ -60,11 +60,6 @@
             font-size: 10px;
         }
 
-        #design {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
         /*    Login Form*/
         body {
             background: #222D32;
@@ -74,7 +69,7 @@
         .login-box {
             margin-top: 75px;
             height: auto;
-            background: darkred;
+            background: black;
             text-align: center;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
@@ -83,7 +78,7 @@
             height: 100px;
             font-size: 80px;
             line-height: 100px;
-            background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+            background: -webkit-linear-gradient(#27EF9F, #960c12);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -202,94 +197,6 @@
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 
-<!--navbar-->
-<br>
-<nav id="design" class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid" style="margin-bottom: 10px;">
-
-        <a href="/frontpage">
-            <img src="/imagines/dasgarageLogo.jpg" alt="" width="130" height="100"
-                 class="d-inline-block align-text-top">
-        </a>
-        <a class="navbar-brand " href="/frontpage">"Welcome to DAS Garage" by SDA Academy JavaRemote Ro21-2021
-            Team, Daniel Stoica </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/frontpage">[Home]</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contactUs">[Contact Us]</a>
-                </li>
-                <li class="nav-item dropdown" sec:authorize="!isAuthenticated()">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        [Login]
-                    </a>
-                    <ul class="dropdown-menu active" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/register">New User</a></li>
-                        <li><a class="dropdown-item" href="/login">Existing User</a></li>
-
-                    </ul>
-                </li>
-                <li class="nav-item" sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/logout">[Logout]</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/leasing">[Leasing]</a>
-                </li>
-                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
-                    <a class="nav-link" href="/product/add">[Add product]</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/get-cart">[Shopping Cart]</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="https://www.accuweather.com/ro/ro/bucharest/287430/daily-weather-forecast/287430"
-                       th:target="_blank">[Weather]</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<br>
-<!--widgets curs valutar-->
-<div style="position: absolute; top: 120px; right: 50px;">
-    <script type="text/javascript" language="javascript"
-            src="//cdn1.curs-valutar-bnr.ro/custom_widgets/get_widget.php?lw=230&rw=1&font=Trebuchet%20MS&cft=00b0ea&ctt=ffffff&ttb=0&cc=f2f2f2&cfb=ffffff&ct=000000&pd=4&pc=4&aiv=1&val[]=8&val[]=19&val[]=9&val[]=4&mf=14&avc=1&ac=1&aod=0&lang=ro"></script>
-    <span style="font-family:arial;font-size:11px;color:#a2a2a2">&nbsp; oferit de: <a
-            href="https://www.curs-valutar-bnr.ro"
-            title="Curs BNR"
-            style="font-size:11px;color:#a2a2a2;text-decoration:underline">curs-valutar-bnr.ro</a></span>
-
-    <!--afisare username-->
-    <li>
-        <div>
-            <h4>
-                <a>Welcome</a>
-                <span sec:authentication="name"/>
-            </h4>
-        </div>
-    </li>
-</div>
-<!--widgets weather-->
-<div style="position: absolute; top: 130px; left: 30px;">
-    <div id="wwo-weather-widget-4"></div>
-    <script type='text/javascript'
-            src='https://www.worldweatheronline.com/widget/v5/weather-widget.ashx?loc=2997066&wid=4&tu=1&div=wwo-weather-widget-4'
-            async></script>
-    <noscript><a href="https://www.worldweatheronline.com/spring-weather/central-java/id.aspx"
-                 alt="Hour by hour Spring, Central Java weather">Spring, Central Java weather forecast hourly</a>
-    </noscript>
-
-</div>
-
 <br>
 <!--Login Panel-->
 <div class="container">
@@ -300,7 +207,7 @@
                 <i class="fa fa-key" aria-hidden="true"></i>
             </div>
             <div class="col-lg-12 login-title">
-                LOGIN PANEL
+                USER LOGIN
             </div>
 
             <div class="col-lg-12 login-form">
@@ -335,7 +242,7 @@
 
 <br>
 <div class="fixed-bottom text-center p-2 bg-white text-dark">
-    DAS Garage is a fictional company made only for Java learning purposes.
+    DAS Restaurant is a fictional company made only for Java learning purposes.
     Terms and conditions don't apply, user discretion is advised.
     Website by SDA Academy JavaRemote Ro21-2021 Team, Daniel Stoica
 </div>
